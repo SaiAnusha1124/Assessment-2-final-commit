@@ -4,7 +4,6 @@ import java.util.Properties;
 import org.openqa.selenium.By;
 import com.atmecs.actions.ClickOnElementAction;
 import com.atmecs.constants.ConstantsFilePaths;
-import com.atmecs.extentreports.ExtentReport;
 import com.atmecs.helpers.LocatorType;
 import com.atmecs.testbase.TestBase;
 import com.atmecs.utils.ReadLocatorsFile;
@@ -24,16 +23,19 @@ public class VerifyShirtItem extends TestBase {
 		properties1 = ReadLocatorsFile.loadProperty(ConstantsFilePaths.TESTDATA_FILE);
 
 		actualitemname = driver.findElement(By.xpath((properties.getProperty("loc-verify-itemname")))).getText();
-		ValidationResult.validateData(actualitemname, properties1.getProperty("expecteditemname"),"Verifying item Name");
+		ValidationResult.validateData(actualitemname, properties1.getProperty("expecteditemname"),
+				"Verifying item Name");
 
 		actualshirtsize = driver.findElement(By.xpath((properties.getProperty("loc-verify-shirtsize")))).getText();
-		ValidationResult.validateData(actualshirtsize, properties1.getProperty("expectedshirtsize"),"Verifying Shirt Size");
+		ValidationResult.validateData(actualshirtsize, properties1.getProperty("expectedshirtsize"),
+				"Verifying Shirt Size");
 
 		actualname = driver.findElement(By.xpath((properties.getProperty("loc-verify-name")))).getText();
 		ValidationResult.validateData(actualname, properties1.getProperty("expectedname"), "Verifying Customer Name");
 
 		actualshirtcolor = driver.findElement(By.xpath((properties.getProperty("loc-verify-shirtcolor")))).getText();
-		ValidationResult.validateData(actualshirtcolor, properties1.getProperty("expectedshirtcolor"),"Verifying Shirt Color");
+		ValidationResult.validateData(actualshirtcolor, properties1.getProperty("expectedshirtcolor"),
+				"Verifying Shirt Color");
 
 		actualprice = driver.findElement(By.xpath((properties.getProperty("loc-verify-price")))).getText();
 		ValidationResult.validateData(actualprice, properties1.getProperty("expectedprice"), "Verifying Shirt Price");
@@ -44,8 +46,10 @@ public class VerifyShirtItem extends TestBase {
 	}
 
 	public static void validatingAfterUpdate() {
-		actualtotalafterupdate = driver.findElement(By.xpath((properties.getProperty("loc-verify-totalafterupdate")))).getText();
-		ValidationResult.validateData(actualtotalafterupdate, properties1.getProperty("expectedtotalafterupdate"),"Verifying Total Amount after updating");
+		actualtotalafterupdate = driver.findElement(By.xpath((properties.getProperty("loc-verify-totalafterupdate"))))
+				.getText();
+		ValidationResult.validateData(actualtotalafterupdate, properties1.getProperty("expectedtotalafterupdate"),
+				"Verifying Total Amount after updating");
 		log.info("Completed Selecting Shirt and validating all details");
 	}
 
@@ -55,7 +59,8 @@ public class VerifyShirtItem extends TestBase {
 		properties1 = ReadLocatorsFile.loadProperty(ConstantsFilePaths.TESTDATA_FILE);
 
 		actualhomepage = driver.findElement(By.xpath((properties.getProperty("loc-verify-homepage")))).getText();
-		ValidationResult.validateData(actualhomepage, properties1.getProperty("expectedhomepage1"),"Verifying Home Page");
+		ValidationResult.validateData(actualhomepage, properties1.getProperty("expectedhomepage1"),
+				"Verifying Home Page");
 		log.info("Validated Home Page");
 
 		click.clickElement(driver, LocatorType.XPATH, properties.getProperty("loc-click-hotsauces"));
@@ -83,6 +88,5 @@ public class VerifyShirtItem extends TestBase {
 		actualfaq = driver.findElement(By.xpath((properties.getProperty("loc-verify-faq")))).getText();
 		ValidationResult.validateData(actualfaq, properties1.getProperty("expectedfaq"), "Verifying FAQ tab");
 		log.info("Successfully Validated all tabs in a Home Page");
-		ExtentReport.reportLog("testingHomePage", "failed");
 	}
 }

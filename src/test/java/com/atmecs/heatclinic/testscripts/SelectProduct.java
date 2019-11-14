@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 import com.atmecs.actions.ClickOnElementAction;
 import com.atmecs.actions.SendKeysAction;
 import com.atmecs.constants.ConstantsFilePaths;
+import com.atmecs.extentreports.ExtentReport;
 import com.atmecs.helpers.LocatorType;
 import com.atmecs.testbase.TestBase;
 import com.atmecs.utils.ReadExcelFile;
@@ -29,17 +30,16 @@ public class SelectProduct extends TestBase {
 	WebElement element;
 
 	String browserUrl;
-	
+
 	@BeforeClass
 	public void launchingUrl() throws IOException {
 		properties = ReadLocatorsFile.loadProperty(ConstantsFilePaths.CONFIG_FILE);
-		browserUrl=properties.getProperty("url1");
+		browserUrl = properties.getProperty("url1");
 		driver.get(browserUrl);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().pageLoadTimeout(1, TimeUnit.MINUTES);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
-
 
 	@DataProvider(parallel = true)
 	public Object[][] inputValues() {
@@ -56,7 +56,7 @@ public class SelectProduct extends TestBase {
 		// locators are reading through LOCATOR_FILE
 		properties = ReadLocatorsFile.loadProperty(ConstantsFilePaths.LOCATOR_FILE);
 		VerifyShirtItem.testingHomePageTabs();
-
+		ExtentReport.reportLog("testingHomePage", "failed");
 		element = driver.findElement(By.xpath(properties.getProperty("loc-click-mens")));
 		Actions action = new Actions(driver);
 		action.moveToElement(element).build().perform();
@@ -71,10 +71,13 @@ public class SelectProduct extends TestBase {
 		click.clickElement(driver, LocatorType.XPATH, properties.getProperty("loc-click-cart"));
 		log.info("Product added into cart");
 		VerifyShirtItem.validatingProduct();
+		ExtentReport.reportLog("validatingProduct", "failed");
 		driver.findElement(By.xpath(properties.getProperty("loc-sendkey-quantity"))).clear();
 		sendkeys.sendKeys(driver, LocatorType.XPATH, properties.getProperty("loc-sendkey-quantity"), quantity);
 		click.clickElement(driver, LocatorType.XPATH, properties.getProperty("loc-click-update"));
 		log.info("Successfully updated the quantity");
 		VerifyShirtItem.validatingAfterUpdate();
+		ExtentReport.reportLog("validatingAfterUpdate", "failed");
 	}
 }
+

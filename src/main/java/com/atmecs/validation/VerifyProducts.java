@@ -3,7 +3,6 @@ package com.atmecs.validation;
 import java.util.Properties;
 import org.openqa.selenium.By;
 import com.atmecs.constants.ConstantsFilePaths;
-import com.atmecs.extentreports.ExtentReport;
 import com.atmecs.testbase.TestBase;
 import com.atmecs.utils.ReadLocatorsFile;
 
@@ -21,8 +20,10 @@ public class VerifyProducts extends TestBase {
 
 			properties = ReadLocatorsFile.loadProperty(ConstantsFilePaths.LOCATOR_FILE);
 			properties1 = ReadLocatorsFile.loadProperty(ConstantsFilePaths.TESTDATA_FILE);
-			actualhomepage = driver.findElement(By.cssSelector((properties.getProperty("loc-verify-homepage-content")))).getText();
-			ValidationResult.validateData(actualhomepage, properties1.getProperty("expectedhomepage"),"Verifying Home Page Content");
+			actualhomepage = driver.findElement(By.cssSelector((properties.getProperty("loc-verify-homepage-content"))))
+					.getText();
+			ValidationResult.validateData(actualhomepage, properties1.getProperty("expectedhomepage"),
+					"Verifying Home Page Content");
 			log.info("Successfully Validated Home Page");
 			log.info("******************");
 		} catch (Exception e) {
@@ -99,6 +100,5 @@ public class VerifyProducts extends TestBase {
 				.getText();
 		ValidationResult.validateData(actualnegativecase, properties1.getProperty("expectednegativecase"),
 				"Verifying after removing grand total");
-		ExtentReport.reportLog("TestNegative", "failed");
 	}
 }

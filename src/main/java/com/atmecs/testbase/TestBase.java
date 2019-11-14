@@ -33,8 +33,8 @@ public class TestBase {
 		 */
 		baseProperty = ReadLocatorsFile.loadProperty(ConstantsFilePaths.CONFIG_FILE);
 		url = baseProperty.getProperty("url");
-		// browser = baseProperty.getProperty("browsertype");
-		browser = System.getenv("browserName");
+		browser = baseProperty.getProperty("browsertype");
+		// browser = System.getenv("browserName");
 		normal = baseProperty.getProperty("normal");
 		if (normal.equalsIgnoreCase("normal")) {
 

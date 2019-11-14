@@ -26,17 +26,18 @@ public class SelectProducts extends TestBase {
 	ClickOnElementAction click = new ClickOnElementAction();
 	SendKeysAction sendkeys = new SendKeysAction();
 	ReadExcelFile readexcel = new ReadExcelFile();
-String browserUrl;
-	
+	String browserUrl;
+
 	@BeforeClass
 	public void launchingUrl() throws IOException {
 		properties = ReadLocatorsFile.loadProperty(ConstantsFilePaths.CONFIG_FILE);
-		browserUrl=properties.getProperty("url");
+		browserUrl = properties.getProperty("url");
 		driver.get(browserUrl);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().pageLoadTimeout(1, TimeUnit.MINUTES);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
+
 	@DataProvider(parallel = true)
 	public Object[][] inputValues() {
 		Object data[][] = readexcel.readExcel("Sheet1", ConstantsFilePaths.TESTDATA_FILE1);
@@ -55,18 +56,19 @@ String browserUrl;
 		properties1 = ReadLocatorsFile.loadProperty(ConstantsFilePaths.TESTDATA_FILE);
 
 		VerifyProducts.verifyingHomePage();
+		ExtentReport.reportLog("verifyingHomePage", "failed");
 		click.clickElement(driver, LocatorType.XPATH, properties.getProperty("loc-click-bttn-search"));
 		sendkeys.sendKeys(driver, LocatorType.XPATH, properties.getProperty("loc-click-bttn-search"), firstproduct);
 		click.clickElement(driver, LocatorType.XPATH, properties.getProperty("loc-click-search"));
 		log.info("Selected Iphone Product");
 		click.clickElement(driver, LocatorType.XPATH, properties.getProperty("loc-click-iphone"));
 		VerifyProducts.verifyingFirstProduct();
+		ExtentReport.reportLog("verifyingFirstProduct", "failed");
 		driver.findElement(By.xpath(properties.getProperty("loc-sendkeys-quantity1"))).clear();
 		sendkeys.sendKeys(driver, LocatorType.XPATH, properties.getProperty("loc-sendkeys-quantity1"), quantity1);
 		click.clickElement(driver, LocatorType.XPATH, properties.getProperty("loc-click-addcart1"));
 		log.info("Added product to cart");
 		log.info("Successfully selected and validate for first product");
-
 		click.clickElement(driver, LocatorType.XPATH, properties.getProperty("loc-click-bttn-search"));
 		driver.findElement(By.xpath(properties.getProperty("loc-click-bttn-search"))).clear();
 		sendkeys.sendKeys(driver, LocatorType.XPATH, properties.getProperty("loc-click-bttn-search"), secondproduct);
@@ -74,6 +76,7 @@ String browserUrl;
 		log.info("Selected MacBook Air Product");
 		click.clickElement(driver, LocatorType.XPATH, properties.getProperty("loc-click-macbookair"));
 		VerifyProducts.verifyingSecondProduct();
+		ExtentReport.reportLog("verifyingSecondProduct", "failed");
 		driver.findElement(By.xpath(properties.getProperty("loc-sendkeys-quantity2"))).clear();
 		sendkeys.sendKeys(driver, LocatorType.XPATH, properties.getProperty("loc-sendkeys-quantity2"), quantity2);
 		click.clickElement(driver, LocatorType.XPATH, properties.getProperty("loc-click-addcart2"));
@@ -84,13 +87,13 @@ String browserUrl;
 		VerifyProducts.verifyingCartList();
 		click.clickElement(driver, LocatorType.XPATH, properties.getProperty("loc-click-removeproduct"));
 		VerifyProducts.afterUpdateGrandTotal();
+		ExtentReport.reportLog("afterUpdateGrandTotal", "failed");
 		log.info("Sucessfulyy selected and validated both iphone and macbook air products");
-		ExtentReport.reportLog("TestSecondProduct", "failed");
-
 		click.clickElement(driver, LocatorType.XPATH, properties.getProperty("loc-click-bttn-search"));
 		sendkeys.sendKeys(driver, LocatorType.XPATH, properties.getProperty("loc-click-bttn-search"), NegativeProduct);
 		click.clickElement(driver, LocatorType.XPATH, properties.getProperty("loc-click-search"));
 		log.info("Selected Chairs as Negative Product");
 		VerifyProducts.verifyingNegativeCase();
+		ExtentReport.reportLog("verifyingNegativeCase", "failed");
 	}
 }
