@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Suite]">
+  <test thread-count="5" verbose="0" name="Test(failed)">
+    <classes>
+      <class name="com.atmecs.heatclinic.testscripts.SelectProduct">
+        <methods>
+          <include name="launchingUrl"/>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="testingHomePage" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- com.atmecs.heatclinic.testscripts.SelectProduct -->
+      <class name="com.atmecs.testscripts.SelectProducts">
+        <methods>
+          <include name="initializeBrowser"/>
+          <include name="closeBrowser"/>
+          <include name="selectingFirstProduct" invocation-numbers="0"/>
+          <include name="launchingUrl"/>
+        </methods>
+      </class> <!-- com.atmecs.testscripts.SelectProducts -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

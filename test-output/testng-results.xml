@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="2" total="4" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2019-11-13T14:51:27Z" name="Suite" finished-at="2019-11-13T14:55:03Z" duration-ms="216714">
+    <groups>
+    </groups>
+    <test started-at="2019-11-13T14:51:27Z" name="Test" finished-at="2019-11-13T14:55:03Z" duration-ms="216714">
+      <class name="com.atmecs.testscripts.SelectProducts">
+        <test-method is-config="true" signature="launchingUrl()[pri:0, instance:com.atmecs.testscripts.SelectProducts@79924b]" started-at="2019-11-13T14:52:15Z" name="launchingUrl" finished-at="2019-11-13T14:52:18Z" duration-ms="3579" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchingUrl -->
+        <test-method signature="selectingFirstProduct(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:com.atmecs.testscripts.SelectProducts@79924b]" started-at="2019-11-13T14:52:18Z" name="selectingFirstProduct" data-provider="inputValues" finished-at="2019-11-13T14:55:03Z" duration-ms="164505" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[iphone]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[MacBook Air]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Chairs]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- selectingFirstProduct -->
+      </class> <!-- com.atmecs.testscripts.SelectProducts -->
+      <class name="com.atmecs.heatclinic.testscripts.SelectProduct">
+        <test-method is-config="true" signature="initializeBrowser()[pri:0, instance:com.atmecs.heatclinic.testscripts.SelectProduct@4fb0f2b9]" started-at="2019-11-13T14:51:27Z" name="initializeBrowser" finished-at="2019-11-13T14:51:30Z" duration-ms="2882" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initializeBrowser -->
+        <test-method is-config="true" signature="launchingUrl()[pri:0, instance:com.atmecs.heatclinic.testscripts.SelectProduct@4fb0f2b9]" started-at="2019-11-13T14:51:30Z" name="launchingUrl" finished-at="2019-11-13T14:51:31Z" duration-ms="1433" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchingUrl -->
+        <test-method signature="testingHomePage(java.lang.String, java.lang.String)[pri:1, instance:com.atmecs.heatclinic.testscripts.SelectProduct@4fb0f2b9]" started-at="2019-11-13T14:51:32Z" name="testingHomePage" data-provider="inputValues" finished-at="2019-11-13T14:52:15Z" duration-ms="42620" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Anu]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testingHomePage -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.atmecs.heatclinic.testscripts.SelectProduct@4fb0f2b9]" started-at="2019-11-13T14:55:03Z" name="closeBrowser" finished-at="2019-11-13T14:55:03Z" duration-ms="561" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- com.atmecs.heatclinic.testscripts.SelectProduct -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
